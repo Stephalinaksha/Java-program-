@@ -1,0 +1,29 @@
+class StudentGradeManagement 
+{
+    public static void main(String[] args) 
+    {
+        String[] students = new String[5];
+        int[] grades = new int[5];
+        int highestGrade = 0;
+        int lowestGrade = 100;
+        int totalGrades = 0;
+        for (int i = 0; i < 5; i++) {
+            students[i] = "Student " + (i + 1); 
+            grades[i] = (i + 1) * 20; 
+            System.out.println("Enter grade for " + students[i] + ": " + grades[i]);
+            totalGrades += grades[i];
+            if (grades[i] > highestGrade) 
+            {
+                highestGrade = grades[i];
+            }
+            if (grades[i] < lowestGrade)
+            {
+                lowestGrade = grades[i];
+            }
+        }
+        double averageGrade = totalGrades / 5.0;
+        System.out.println("Highest Grade: " + highestGrade);
+        System.out.println("Lowest Grade: " + lowestGrade);
+        System.out.println("Average Grade: " + averageGrade);
+    }
+}
