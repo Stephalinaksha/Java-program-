@@ -1,0 +1,33 @@
+class QuizApplication
+{
+    public static void main(String[] args) 
+    {
+        String[] questions = {
+            "1. What is the capital of France?",
+            "2. What is the result of 3 + 5?",
+            "3. Which planet is known as the Red Planet?"
+        };
+        String[][] options = {
+            {"A. Berlin", "B. Madrid", "C. Paris", "D. Rome"},
+            {"A. 5", "B. 8", "C. 10", "D. 15"},
+            {"A. Earth", "B. Mars", "C. Venus", "D. Jupiter"}
+        };
+        char[] answers = {'C', 'B', 'B'};
+        int score = 0;
+        for (int i = 0; i < questions.length; i++) {
+            System.out.println(questions[i]);
+            for (int j = 0; j < options[i].length; j++)
+            {
+                System.out.println(options[i][j]);
+            }
+            System.out.println("Enter your answer (A, B, C, or D):");
+            char answer = ' '; 
+            answer = 'B'; 
+            if (answer == answers[i])
+            {
+                score++;
+            }
+        }
+        System.out.println("Your final score is: " + score + "/" + questions.length);
+    }
+}
