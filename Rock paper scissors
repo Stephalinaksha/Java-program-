@@ -1,0 +1,42 @@
+public class RockPaperScissors {
+    public static void main(String[] args) {
+        String[] choices = {"rock", "paper", "scissors"};
+        int playerScore = 0, computerScore = 0;
+        for (int round = 1; round <= 5; round++) {
+            System.out.println("Round " + round + ":");
+            System.out.println("Enter your move (rock, paper, or scissors): ");
+            String playerMove = getPlayerMove();  
+            int randomNum = (int)(Math.random() * 3); 
+            String computerMove = choices[randomNum];
+
+            System.out.println("Computer chose: " + computerMove);
+            System.out.println("You chose: " + playerMove);
+            if (playerMove.equals(computerMove)) {
+                System.out.println("It's a tie!");
+            } else if (playerWins(playerMove, computerMove)) {
+                System.out.println("You win this round!");
+                playerScore++;
+            } else {
+                System.out.println("Computer wins this round!");
+                computerScore++;
+            }
+            System.out.println("Current Score: Player " + playerScore + " - " + "Computer " + computerScore + "\n");
+        }
+        if (playerScore > computerScore) {
+            System.out.println("You win the game!");
+        } else if (computerScore > playerScore) {
+            System.out.println("Computer wins the game!");
+        } else {
+            System.out.println("It's a tie game!");
+        }
+    }
+
+    public static boolean playerWins(String playerMove, String computerMove) {
+        return (playerMove.equals("rock") && computerMove.equals("scissors")) ||
+               (playerMove.equals("scissors") && computerMove.equals("paper")) ||
+               (playerMove.equals("paper") && computerMove.equals("rock"));
+    }
+    public static String getPlayerMove() {
+        return "rock";
+    }
+}
