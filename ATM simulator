@@ -1,0 +1,57 @@
+class ATMSimulator 
+{
+    public static void main(String[] args) 
+    {
+        double balance = 1000.00;
+        String[] options = {
+            "1. Check Balance",
+            "2. Deposit Money",
+            "3. Withdraw Money",
+            "4. Exit"
+        };
+        int userChoice = 0; 
+        System.out.println("Welcome to the ATM Simulator");
+        while (userChoice != 4) 
+        {
+            System.out.println("Please select an option:");
+            for (int i = 0; i < options.length; i++) 
+            {
+                System.out.println(options[i]);
+            }
+            userChoice++;
+            if (userChoice > 4) 
+            {
+                userChoice = 1; 
+            }
+            if (userChoice == 1) 
+            { 
+                System.out.println("Your current balance is: $" + balance);
+            } 
+            else if (userChoice == 2) 
+            { 
+                double depositAmount = 100.00; 
+                balance += depositAmount;
+                System.out.println("You have deposited: $" + depositAmount);
+                System.out.println("Your new balance is: $" + balance);
+            } 
+            else if (userChoice == 3) 
+            { 
+                double withdrawAmount = 50.00; 
+                if (withdrawAmount <= balance) 
+                {
+                    balance -= withdrawAmount;
+                    System.out.println("You have withdrawn: $" + withdrawAmount);
+                    System.out.println("Your new balance is: $" + balance);
+                } 
+                else 
+                {
+                    System.out.println("Insufficient funds for withdrawal of: $" + withdrawAmount);
+                }
+            }
+            else if (userChoice == 4) 
+            { 
+                System.out.println("Thank you for using the ATM. Goodbye!");
+            }
+        }
+    }
+}
